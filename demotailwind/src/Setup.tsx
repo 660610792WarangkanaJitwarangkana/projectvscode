@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
 import "./Setup.css";
-import "./Gameplay.css";
+import "./Strategy.css";
 
 const modes = ["DUEL", "SOLITAIRE", "AUTO"];
 const characters = [
@@ -37,7 +37,7 @@ export default function CharacterSelection() {
 
   return (
     <div>
-    <div className="p-4 max-w-md mx-auto text-center">
+    <div className="p-1 max-w-md mx-auto text-center">
       <h1>SETUP</h1>
 
       <h2 className="text-xl font-bold mb-4">1. Select Game Mode</h2>
@@ -55,7 +55,7 @@ export default function CharacterSelection() {
 
     </div>
 
-    <div className="grid grid-cols-5 gap-4 justify-items-center items-center">
+    <div className="grid grid-cols-5 gap-24 justify-items-center items-center">
         {characters.map((character) => (
       <div
         key={character.id}
@@ -63,7 +63,7 @@ export default function CharacterSelection() {
             onClick={() => toggleCharacter(character.id)}
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
     >
-      <div className={`hex ${character.name.toLowerCase()}`} style={{ width: '100px', height: '100px' }}></div>
+      <div className={`hex ${character.name.toLowerCase()}`}></div>
           <div className={`character-name mt-2 ${selectedCharacters.includes(character.id) ? "text-yellow-500" : ""}`}>
             {character.name}
           </div>
@@ -86,8 +86,8 @@ export default function CharacterSelection() {
       )}
 
       {selectedCharacters.length > 0 && (
-        <Link to="/gameplay">
-          <button className="#confirm-btn">
+        <Link to="/strategy">
+          <button className="confirm">
             CONFIRM
           </button>
         </Link>

@@ -149,57 +149,6 @@
     top: 467px;
 }
 
-.setup .gray-hex {
-    height: 160px;
-    left: 525px;
-    object-fit: cover;
-    position: absolute;
-    top: 431px;
-    width: 160px;
-}
-
-.setup .img {
-    height: 160px;
-    left: 434px;
-    object-fit: cover;
-    position: absolute;
-    top: 485px;
-    width: 160px;
-}
-
-.setup .gray-hex-2 {
-    height: 160px;
-    left: 616px;
-    object-fit: cover;
-    position: absolute;
-    top: 485px;
-    width: 160px;
-}
-
-.setup .overlap-group {
-    height: 248px;
-    left: -135px;
-    position: absolute;
-    top: 0;
-    width: 1705px;
-}
-
-.setup .union {
-    height: 175px;
-    left: 135px;
-    position: absolute;
-    top: 0;
-    width: 1440px;
-}
-
-.setup .union-2 {
-    height: 248px;
-    left: 135px;
-    position: absolute;
-    top: 0;
-    width: 1440px;
-}
-
 .setup .text-wrapper-6 {
     -webkit-text-stroke: 5px #ffffff;
     color: #1c650a;
@@ -275,7 +224,7 @@
 }
 
 .setup .text-wrapper-8 {
-    color: #65558f;
+    color: #ad94eb;
 }
 
 .setup .image {
@@ -343,22 +292,33 @@ body {
 
 
 .mode-selection {
-    background: #555;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    margin: 5px;
-    border-radius: 5px;
+    font-family: "Ribeye Marrow";
+    font-size: 60px;
+    min-width: 440px;
+    height: 108px; /* กำหนดความสูงให้ปุ่ม */
+    background-image: url('./assets/StartButton.svg');
+    background-position: center;
+    background-size: 108%;
+    color: rgba(86, 71, 64, 1);
+    border: 8px solid rgba(86, 71, 64, 1); /* ขอบสีน้ำตาล */
+    margin: 8px;
+    border-radius: 16px;
     cursor: pointer;
+    
+    /* จัดให้อักษรอยู่ตรงกลาง */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
+
 
 .mode-selected button.active {
     background-image: url'/assets/StartButton.svg';
 }
 
-#confirm-btn {
-    background: #28a745;
-    color: white;
+#confirm {
+    background-image: url'assets/StartButton.svg';
     border: none;
     padding: 10px 20px;
     margin-top: 20px;
