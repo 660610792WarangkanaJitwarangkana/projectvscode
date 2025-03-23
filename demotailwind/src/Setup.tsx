@@ -61,15 +61,13 @@ export default function CharacterSelection() {
         key={character.id}
         className={`char ${character.name.toLowerCase()} ${selectedCharacters.includes(character.id) ? "selected" : ""}`}
             onClick={() => toggleCharacter(character.id)}
-      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}
-    >
+      style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
       <div className={`hex ${character.name.toLowerCase()}`}></div>
           <div className={`character-name mt-2 ${selectedCharacters.includes(character.id) ? "text-yellow-500" : ""}`}>
             {character.name}
           </div>
-      </div>
-  ))}
-  </div>
+      </div>))}
+    </div>
 
 
       <div className="flex justify-center mb-4">

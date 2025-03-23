@@ -1,5 +1,14 @@
 @import "tailwindcss";
 
+.strategy {
+    background-image: url("../assets/background.svg");
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+}
+
 #confirm {
     background-image: url('assets/StartButton.svg');
     border: none;

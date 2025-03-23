@@ -1,16 +1,4 @@
-// import { StrictMode } from 'react'
-// import { createRoot } from 'react-dom/client'
-// import './index.css'
-// import App from './Start.tsx'
-// // import App from './Setup.tsx'
-
-// createRoot(document.getElementById('root')!).render(
-//   <StrictMode>
-//     <App />
-//   </StrictMode>,
-// )
-
-import React from 'react';
+import React from "react";
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import Start from './Start';
@@ -26,7 +14,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Start />} />
         <Route path="/setup" element={<Setup />} />
-        <Route path="/setup" element={<Strategy />} />
+        <Route path="/strategy" element={<Strategy />} />
         <Route path="/gameplay" element={<Gameplay />} />
       </Routes>
     </BrowserRouter>
