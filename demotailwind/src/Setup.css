@@ -5,8 +5,8 @@
     display: flex;
     flex-direction: row;
     justify-content: center;
-    width: 100%;
-    height: 100%;
+    width: 100vh;
+    height: 100vh;
 }
 
 .setup .div {
@@ -30,10 +30,10 @@
 }
 
 .char {
-    height: 300px;
+    height: 220px;
     position: center;
-    width: 300px;
-    background-size: cover;
+    width: 220px;
+    background-size: 100%;
     background-position: center;
     border-radius: 1000px;
     cursor: pointer;
@@ -55,7 +55,7 @@
 }
 
 .char.hydrangeas {
-    background-image: url("../assets/hydrangea.png") !important;
+    background-image: url("../assets/hydrangeas.png") !important;
 }
 
 .char.lotus {
@@ -91,80 +91,6 @@
     top: 319px;
 }
 
-.setup .p {
-    -webkit-text-stroke: 5px #ffffff;
-    color: #1c650a;
-    font-family: "Margarine-Regular", Helvetica;
-    font-size: 36px;
-    font-weight: 400;
-    left: 233px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    text-shadow: 0px 4px 4px #00000040;
-    top: 612px;
-    width: 731px;
-}
-
-.setup .text-wrapper-3 {
-    color: #ffffff;
-    font-family: "Margarine-Regular", Helvetica;
-    font-size: 36px;
-    font-weight: 400;
-    left: 1001px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    text-shadow: 0px 4px 4px #00000040;
-    top: 295px;
-}
-
-.setup .text-wrapper-4 {
-    color: #ffffff;
-    font-family: "Margarine-Regular", Helvetica;
-    font-size: 36px;
-    font-weight: 400;
-    left: 819px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    text-shadow: 0px 4px 4px #00000040;
-    top: 467px;
-}
-
-.setup .text-wrapper-5 {
-    color: #ffffff;
-    font-family: "Margarine-Regular", Helvetica;
-    font-size: 36px;
-    font-weight: 400;
-    left: 267px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    text-shadow: 0px 4px 4px #00000040;
-    top: 467px;
-}
-
-.setup .text-wrapper-6 {
-    -webkit-text-stroke: 5px #ffffff;
-    color: #1c650a;
-    font-family: "Margarine-Regular", Helvetica;
-    font-size: 32px;
-    font-weight: 400;
-    left: 0;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    text-shadow: 0px 4px 4px #00000040;
-    top: 2px;
-    width: 731px;
-}
-
 .setup .please-choose-at {
     -webkit-text-stroke: 5px #ffffff;
     color: #b3261e;
@@ -190,19 +116,6 @@
     position: absolute;
     top: 61px;
     width: 320px;
-}
-
-.setup .text-wrapper-7 {
-    color: #65558f;
-    font-family: "Ribeye Marrow-Regular", Helvetica;
-    font-size: 64px;
-    font-weight: 400;
-    left: 280px;
-    letter-spacing: 0;
-    line-height: normal;
-    position: absolute;
-    text-align: center;
-    top: 64px;
 }
 
 .setup .player-vs-player {
@@ -245,18 +158,22 @@
     width: 32px;
 }
 
-.arrowright {
-    background-size: 300%;
+.arrow-right {
+    background-size: 350%;
+    background-color: #b3261e00;
+    height: 100px;
+    width: 160px;
     background-position: center;
-    background-image: url'/assets/arrowright.png';
+    background-image: url('./assets/arrow_right.png');
 }
 
-.setup .arrow-left {
-    height: 80px !important;
-    left: 154px !important;
-    position: absolute !important;
-    top: 69px !important;
-    width: 80px !important;
+.arrow-left {
+    background-size: 350%;
+    background-color: #b3261e00;
+    height: 100px;
+    width: 160px;
+    background-position: center;
+    background-image: url('./assets/arrow_left.png');
 }
 
 .setup .text-wrapper-9 {
@@ -293,9 +210,9 @@ body {
 
 .mode-selection {
     font-family: "Ribeye Marrow";
-    font-size: 60px;
-    min-width: 440px;
-    height: 108px; /* กำหนดความสูงให้ปุ่ม */
+    font-size: 48px;
+    min-width: 350px;
+    height: 88px; /* กำหนดความสูงให้ปุ่ม */
     background-image: url('./assets/StartButton.svg');
     background-position: center;
     background-size: 108%;
@@ -305,7 +222,6 @@ body {
     border-radius: 16px;
     cursor: pointer;
     
-    /* จัดให้อักษรอยู่ตรงกลาง */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -317,14 +233,46 @@ body {
     background-image: url'/assets/StartButton.svg';
 }
 
-#confirm {
-    background-image: url'assets/StartButton.svg';
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    cursor: pointer;
+.next-button {
+    background-image: url('./assets/button.png');
+    background-position: center;
+    letter-spacing: 1px;
+    color: rgba(76, 24, 0, 1);
+    font-family: "margarine";
+    font-size: 48px;
+    font-weight: bold;
+    padding: 3px 36px;
+    border-radius: 11px;
+    margin-left: 750px;
+    margin-top: -80px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    
 }
+
+.back-button {
+    background-image: url('./assets/button.png');
+    background-position: center;
+    letter-spacing: 1px;
+    color: rgba(76, 24, 0, 1);
+    font-family: "margarine";
+    font-size: 48px;
+    font-weight: bold;
+    padding: 3px 36px;
+    border-radius: 11px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.next-button:hover {
+    filter: brightness(75%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.back-button:hover {
+    filter: brightness(75%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  }
 
 #message {
     color: red;
@@ -333,9 +281,9 @@ body {
 
 h1 {
     font-family: "margarine";
-    margin-top: -32px;
+    margin-top: -120px;
     stroke: black;
-    font-size: 160%;
+    font-size: 88px;
     color: rgb(255, 255, 255);
     -webkit-text-stroke: px black;
     text-shadow:
@@ -344,15 +292,43 @@ h1 {
 
 h2 {
     font-family: "margarine";
-    
-    font-size: 40px;
+    font-size: 28px;
     color: white;
     line-height: 1.1;
     background-color: #1c650a;
     padding: 8px;
+    margin-left: 80px;
+    margin-right: 80px;
+    border-radius: 100px;
+}
+
+h3 {
+    font-family: "margarine";
+    font-size: 30px;
+    color: darkred;
+    /*background-color: #1c650a;*/
+    padding: 8px;
     margin-left: 10px;
     margin-right: 10px;
-    border-radius: 100px;
+    margin-top: -80px;
+    
+}
+
+h4 {
+    font-family: "margarine";
+    font-size: 30px;
+    color: darkred;
+    /*background-color: #1c650a;*/
+    padding: 8px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: -90px;
+    -webkit-text-stroke: px rgb(255, 255, 255);
+    text-shadow: 
+      -2px -2px 0 rgb(255, 255, 255),
+       2px -2px 0 rgb(255, 255, 255),
+      -2px  2px 0 rgb(255, 255, 255),
+       2px  2px 0 rgb(255, 255, 255);
 }
 
 .daimond {
@@ -366,14 +342,12 @@ h2 {
     justify-content: center;
     position: relative;
     cursor: pointer;
-    margin-top: -108px;
-    transform: scale(1.5);
+    margin-top: -160px;
+    transform: scale(1.1);
 }
 
 .daimond.higher {
-    transform: scale(1.5) translateY(-42px);
-    margin-left: 22px;
-    margin-right: 22px;
+    transform: scale(1.1) translateY(-45px);
 }
 
 .daimond.selected {
@@ -402,10 +376,10 @@ h2 {
 
 .character-name {
     position: absolute;
-    margin-top: -80px;
+    margin-top: -60px;
     font-weight: bold;
     color: white;
-    font-size: 48px;
+    font-size: 32px;
     font-family: "margarine";
     filter: brightness(1.2);
 }

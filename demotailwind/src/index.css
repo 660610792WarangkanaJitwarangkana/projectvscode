@@ -1,9 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Margarine&family=Ribeye+Marrow&display=swap');
 
 :root {
-  line-height: 1.5;
-  font-weight: 400;
-
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
@@ -33,28 +30,25 @@ body {
   background-image: url('public/assets/background.jpg');
   background-size: 100%;
   background-position: center;
-  font-size: 80px;
 }
 
 h1 {
   font-family: "margarine";
-  line-height: 1.1;
+  margin-top: -56px;
   stroke: black;
-  font-size: 80px;
-  color: white;
+  font-size: 96px;
+  color: rgb(255, 255, 255);
   -webkit-text-stroke: px black;
-  text-shadow: 
-    /* -4px -4px 0 black,  
-     4px -4px 0 black,
-    -4px  4px 0 black, */
-     5px  5px 0 rgba(26, 64, 13, 1);
+  text-shadow:
+  5px  5px 0 rgba(26, 64, 13, 1);
 }
 
 h2 {
   font-family: "margarine";
-  font-size: 40px;
+  font-size: 440px;
   color: rgba(82, 38, 11, 0.7);
   line-height: 1.1;
+  
 }
 
 h3 {
@@ -63,11 +57,11 @@ h3 {
   font-weight: bold;
   color: rgba(82, 38, 11, 0.7);
   line-height: 1.1;
-  text-shadow: 
-    /* -1px -1px 0 white,  
+  /* text-shadow: 
+    -1px -1px 0 white,  
     1px -1px 0 white,  
-    -1px 1px 0 white,   */
-    10% 10% 0 white; 
+    -1px 1px 0 white,  
+    10% 10% 0 white;  */
 }
 
 button {

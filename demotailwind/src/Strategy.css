@@ -9,12 +9,183 @@
     height: 100%;
 }
 
-#confirm {
-    background-image: url('assets/StartButton.svg');
-    border: none;
-    padding: 10px 20px;
-    margin-top: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    color: aliceblue;
+h3 {
+    font-family: "margarine";
+    font-size: 34px;
+    color: darkred;
+    /*background-color: #1c650a;*/
+    padding: 8px;
+    margin-top: -10px;
+    margin-left: 10px;
+    margin-right: 10px;
+  -webkit-text-stroke: px rgb(255, 255, 255);
+  text-shadow: 
+    -2px -2px 0 rgb(255, 255, 255),
+     2px -2px 0 rgb(255, 255, 255),
+    -2px  2px 0 rgb(255, 255, 255),
+     2px  2px 0 rgb(255, 255, 255);
 }
+
+.confirm-button {
+    /* background-image: url('./assets/button.png'); */
+    background-color: rgb(203, 248, 135);
+    background-position: center;
+    letter-spacing: 1px;
+    color: rgba(26, 64, 13, 1);
+    font-family: "margarine";
+    font-size: 48px;
+    font-weight: bold;
+    padding: 3px 36px;
+    border-radius: 11px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.confirm-button:hover {
+    filter: brightness(75%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.edit-button {
+    /* background-image: url('./assets/button.png'); */
+    background-color: rgb(204, 208, 198);
+    background-position: center;
+    letter-spacing: 1px;
+    color: rgba(26, 64, 13, 1);
+    font-family: "margarine";
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 36px;
+    border-radius: 11px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.edit-button:hover {
+    filter: brightness(75%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.edited-button {
+    /* background-image: url('./assets/button.png'); */
+    background-color: rgb(203, 248, 135);
+    background-position: center;
+    letter-spacing: 1px;
+    color: rgba(26, 64, 13, 1);
+    font-family: "margarine";
+    font-size: 16px;
+    font-weight: bold;
+    padding: 3px 36px;
+    border-radius: 11px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    
+}
+
+.edited-button:hover {
+    filter: brightness(75%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+}
+
+.char {
+    height: 200px;
+    position: center;
+    width: 220px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 1000px;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.char.daisy {
+    background-image: url("../assets/daisy.png") !important;
+}
+
+.char.bell {
+    background-image: url("../assets/bell.png") !important;
+}
+
+.char.rose {
+    background-image: url("../assets/rose.png") !important;
+}
+
+.char.hydrangeas {
+    background-image: url("../assets/hydrangeas.png") !important;
+}
+
+.char.lotus {
+    background-image: url("../assets/lotus.png") !important;
+}
+
+.named {
+    position: center;
+    text-align: center;
+    font-weight: bold;
+    color: rgba(26, 64, 13, 1);
+    font-size: 30px;
+    font-family: "margarine";
+    filter: brightness(1.2);
+}
+.card {
+    place-items: center;
+    background-color: rgb(248, 244, 238);
+    color: rgba(26, 64, 13, 1);
+}
+
+.card:hover {
+    box-shadow: 0px 6px 40px rgb(189, 255, 82);
+}
+
+.strategy-box{
+    background-color: antiquewhite;
+    margin-top: -200px;
+    color: rgba(26, 64, 13, 1);
+}
+
+.cancle-button {
+    background-color: rgb(255, 134, 134);
+    background-position: center;
+    letter-spacing: 1px;
+    color: rgba(76, 24, 0, 1);
+    font-family: "margarine";
+    font-size: 36px;
+    font-weight: bold;
+    padding: 3px 8px;
+    height: 80px;
+    border-radius: 11px;
+    margin-top: -10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    transform: scale(0.8);
+  }
+
+  .cancle-button:hover {
+    filter: brightness(75%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  }
+
+  .save-button {
+    background-color: rgb(140, 255, 134);
+    background-position: center;
+    letter-spacing: 1px;
+    color: rgba(76, 24, 0, 1);
+    font-family: "margarine";
+    font-size: 36px;
+    font-weight: bold;
+    padding: 3px 8px;
+    height: 80px;
+    width: 120px;
+    border-radius: 11px;
+    margin-top: -10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    transform: scale(0.8);
+  }
+
+  .save-button:hover {
+    filter: brightness(75%);
+    box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
+  }

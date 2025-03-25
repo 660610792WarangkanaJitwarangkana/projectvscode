@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import BackButton from "./BackButton";
 import "./Strategy.css";
 import "./Setup.css";
 import "./Gameplay.css";
@@ -12,95 +13,112 @@ const characters = [
   { id: 5, name: "Lotus" },
 ];
 
-// 🏆 ตัวแปรที่กำหนดตัวละครที่ถูกเลือกจากหลังบ้าน
-const preselectedCharacters = [1, 3]; // ✅ เปลี่ยนค่าตามที่ต้องการ
-
 export default function SetStrategy() {
-  const [selectedCharacters, setSelectedCharacters] = useState<number[]>(preselectedCharacters);
+  const location = useLocation();
+  const p1selectedCharacters = location.state?.selectedCharacters || [];
+  const p2selectedCharacters = [1, 2];
+  const combinedCharacters = Array.from(new Set([...p1selectedCharacters, ...p2selectedCharacters]));
+
+  const [selectedCharacters, setSelectedCharacters] = useState<number[]>(combinedCharacters);
   const [strategies, setStrategies] = useState<{ [key: number]: string }>({});
+  const [editingCharacter, setEditingCharacter] = useState<number | null>(null);
+  const [tempStrategy, setTempStrategy] = useState("");
 
-  const toggleCharacter = (id: number) => {
-    setSelectedCharacters((prev) =>
-      prev.includes(id)
-        ? prev.filter((charId) => charId !== id)
-        : [...prev, id]
-    );
-
-    // ลบค่า strategy ถ้าถอดตัวละครออก
-    setStrategies((prev) => {
-      const updated = { ...prev };
-      delete updated[id];
-      return updated;
-    });
+  const handleEditClick = (id: number) => {
+    setEditingCharacter(id);
+    setTempStrategy(strategies[id] || "");
   };
 
-  const handleStrategyChange = (id: number, value: string) => {
-    setStrategies((prev) => ({
-      ...prev,
-      [id]: value,
-    }));
+  const handleSaveStrategy = () => {
+    if (editingCharacter !== null) {
+      setStrategies((prev) => ({
+        ...prev,
+        [editingCharacter]: tempStrategy,
+      }));
+    }
+    setEditingCharacter(null);
   };
 
   const allStrategiesFilled =
     selectedCharacters.length > 0 &&
     selectedCharacters.every((id) => strategies[id]?.trim());
 
-    
   return (
-    <div className="flex flex-col items-center space-y-6 p-6">
-      
-      {/*<h1 className="text-2xl font-bold">Choose Your Characters</h1>
+    <div>
+      <div className="flex mr-320 mb-20">
+        <BackButton />
+      </div>
+      <div className="flex flex-col items-center space-y-6 p-6 mb-50">
+        <h1 className="text-xl font-semibold mt-4">Set Strategy</h1>
+        <div className="flex flex-wrap gap-4">
+          {selectedCharacters.map((id) => {
+            const character = characters.find((char) => char.id === id);
+            return (
+              <div key={id} className="card p-4 border rounded-lg w-50">
+                <div className="named text-center mb-4">{character?.name}</div>
+                <div
+                  className="justify-center"
+                  style={{
+                    backgroundImage: `url(/assets/${character?.name.toLowerCase()}.png)`,
+                    width: "160px",
+                    height: "180px",
+                    backgroundSize: "190px",
+                    backgroundPosition: "center",
+                  }}
+                ></div>
+                
+                <button
+                  className={`edit button mt-4 w-full px-3 py-2 text-white rounded 
+                    ${strategies[id]?.trim() ? "edited-button" : "edit-button"}`}
+                  onClick={() => handleEditClick(id)}
+                >
+                  Edit Strategy
+                </button>
 
-       แสดงตัวละครให้เลือก
-      <div className="grid grid-cols-5 gap-6">
-        {characters.map((character) => (
-          <div
-            key={character.id}
-            className={`char p-4 border rounded-lg cursor-pointer transition-all ${
-              selectedCharacters.includes(character.id)
-                ? "bg-yellow-500 text-white"
-                : "bg-gray-200 hover:bg-gray-300"
-            }`}
-            onClick={() => toggleCharacter(character.id)}
-          >
-            <div className="hex">{character.name}</div>
-            <div className="mt-2 text-center">{character.name}</div>
-          </div>
-        ))}
-      </div> */}
 
-      {/* แสดงผลตัวละครที่ถูกเลือก */}
-      <h1 className="text-xl font-semibold mt-4">Set Strategy</h1>
-      <div className="flex flex-wrap gap-4">
-        {selectedCharacters.map((id) => {
-          const character = characters.find((char) => char.id === id);
-          return (
-            <div key={id} className="p-4 border rounded-lg bg-gray-100 w-48">
-              <div className="text-center font-bold text-lg">{character?.name}</div>
-              <input
-                type="text"
-                placeholder="Enter Strategy"
-                className="mt-2 w-full px-3 py-1 border rounded focus:outline-none focus:ring-2 focus:ring-blue-400"
-                value={strategies[id] || ""}
-                onChange={(e) => handleStrategyChange(id, e.target.value)}
-              />
-            </div>
-          );
-        })}
+              </div>
+            );
+          })}
+        </div>
+
+        {!allStrategiesFilled && selectedCharacters.length > 0 && (
+          <h3 className="text-red-500 mb">Please set your minion strategy</h3>
+        )}
+
+        {allStrategiesFilled && (
+          <Link to="/gameplay">
+            <button className="confirm-button">CONFIRM</button>
+          </Link>
+        )}
       </div>
 
-      {/* แจ้งเตือนถ้ายังไม่ใส่ strategy ครบทุกตัว */}
-      {!allStrategiesFilled && selectedCharacters.length > 0 && (
-        <p className="text-red-500">Please set your minion strategy</p>
-      )}
-
-      {/* ปุ่ม CONFIRM - แสดงเฉพาะเมื่อ strategy ครบทุกตัว */}
-      {allStrategiesFilled && (
-        <Link to="/gameplay">
-          <button className="px-6 py-2 text-lg font-bold rounded bg-blue-500 text-white hover:bg-blue-600">
-            CONFIRM
-          </button>
-        </Link>
+      {editingCharacter !== null && (
+        <div className="modal-overlay">
+          <div className="strategy-box modal-content p-6 bg-black rounded shadow-lg">
+            <h2 className="text-xl font-bold mb-4">
+              Edit Strategy for {characters.find((c) => c.id === editingCharacter)?.name}
+            </h2>
+            <textarea
+              className="w-full h-40 p-3 border rounded focus:outline-none focus:ring-2 focus:ring-green-400"
+              value={tempStrategy}
+              onChange={(e) => setTempStrategy(e.target.value)}
+            ></textarea>
+            <div className="flex justify-end mt-4">
+              <button
+                className="cancle-button "
+                onClick={() => setEditingCharacter(null)}
+              >
+                Cancel
+              </button>
+              <button
+                className="save-button"
+                onClick={handleSaveStrategy}
+              >
+                Save
+              </button>
+            </div>
+          </div>
+        </div>
       )}
     </div>
   );

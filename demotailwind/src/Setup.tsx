@@ -1,7 +1,9 @@
 import { useState } from "react";
 import { Link } from 'react-router-dom';
+import BackButton from "./BackButton";
 import "./Setup.css";
 import "./Strategy.css";
+import "./Start.css";
 
 const modes = ["DUEL", "SOLITAIRE", "AUTO"];
 const characters = [
@@ -37,25 +39,35 @@ export default function CharacterSelection() {
 
   return (
     <div>
-    <div className="p-1 max-w-md mx-auto text-center">
-      <h1>SETUP</h1>
+      <BackButton />
+      <div className="p-1 max-w-md mx-auto text-center">
+      {selectedCharacters.length > 0 && (
+        <Link to="/strategy" state={{ selectedCharacters }}>
+          <button className="next-button flex">
+            NEXT
+          </button>
+        </Link>
+        )}
 
-      <h2 className="text-xl font-bold mb-4">1. Select Game Mode</h2>
+        <h1>SETUP</h1>
 
-      <div className="flex items-center justify-center gap-4 mb-6">
-        <button className="px-4 py-2 bg-gray-300 rounded" onClick={handlePrevious}>
-          ←
-        </button>
-        <div className="mode-selection">
-          {modes[selectedModeIndex]}
+        <h2 className="font-bold mb-4">1. Select Game Mode</h2>
+
+        <div className="flex items-center justify-center gap-2 mb-4">
+          <button className="arrow-left" onClick={handlePrevious}>
+          </button>
+          <div className="mode-selection">
+            {modes[selectedModeIndex]}
+          </div>
+          <button className="arrow-right" onClick={handleNext}>
+          </button>
         </div>
-        <button className="arrowright" onClick={handleNext}>
-        </button>
+        <h2 className="text-xl font-bold mb-1">2. Select Character</h2>
+
       </div>
 
-    </div>
-
-    <div className="grid grid-cols-5 gap-24 justify-items-center items-center">
+      <div>
+      <div className="w-280 grid grid-cols-5 justify-center items-center mt-16 ml-40">
         {characters.map((character) => (
       <div
         key={character.id}
@@ -63,12 +75,20 @@ export default function CharacterSelection() {
             onClick={() => toggleCharacter(character.id)}
       style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', textAlign: 'center' }}>
       <div className={`hex ${character.name.toLowerCase()}`}></div>
-          <div className={`character-name mt-2 ${selectedCharacters.includes(character.id) ? "text-yellow-500" : ""}`}>
+          <div className={`character-name  ${selectedCharacters.includes(character.id) ? "text-yellow-500" : ""}`}>
             {character.name}
           </div>
       </div>))}
-    </div>
+      </div>
 
+      <div className="flex justify-center">
+        {Array.from({ length: maxSelection }).map((_, index) => (
+          <div
+            key={index}
+            className={`daimond ${index < selectedCharacters.length ? "selected" : "remain"} ${index === 1 ? "higher" : ""}`}
+          />
+        ))}
+      </div>
 
       <div className="flex justify-center mb-4">
         {Array.from({ length: maxSelection }).map((_, index) => (
@@ -78,20 +98,12 @@ export default function CharacterSelection() {
           />
         ))}
       </div>
-
       {selectedCharacters.length === 0 && (
-        <p className="text-red-500 mt-4">Please choose at least 1 type of minion</p>
-      )}
-
-      {selectedCharacters.length > 0 && (
-        <Link to="/strategy">
-          <button className="confirm">
-            CONFIRM
-          </button>
-        </Link>
-      )}
-    
-    
+        <h4 className="flex justify-center">Please choose at least 1 type of minion</h4>
+      )} 
+      
+      </div>
+      
   </div>
   );
-}
+};

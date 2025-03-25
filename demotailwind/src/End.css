@@ -8,13 +8,14 @@
 }
 
 /* ปุ่ม Start */
-.start-button {
+.regame-button {
   background-image: url('./assets/StartButton.svg');
   background-position: center;
+  background-size: 150%;
   letter-spacing: 1px;
   color: rgba(76, 24, 0, 1);
   font-family: "margarine";
-  font-size: 72px;
+  font-size: 60px;
   font-weight: bold;
   padding: 35px 69px;
   border-radius: 22px;
@@ -23,13 +24,13 @@
   transform: scale(0.7);
 }
 
-.start-button:hover {
+.regame-button:hover {
   background-color: #eab308;
   filter: brightness(75%);
   box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.3);
 }
 
-.name {
+.result {
   font-family: "margarine";
   line-height: 1.1;
   stroke: rgb(255, 255, 255);
@@ -38,10 +39,9 @@
   color: rgba(28, 101, 10, 1);
   -webkit-text-stroke: px black;
   text-shadow: 
-    -7px -7px 0 rgb(255, 255, 255),  
-     7px -7px 0 rgb(255, 255, 255),
-    -7px  7px 0 rgb(255, 255, 255),
-     7px  7px 0 rgb(255, 255, 255);
+    -4px -6px 0 rgb(255, 255, 255),  
+     4px -6px 0 rgb(255, 255, 255),
+    -6px  6px 0 rgb(255, 255, 255),
+     6px  6px 0 rgb(255, 255, 255);
 }
-
 
